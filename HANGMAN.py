@@ -1,26 +1,99 @@
 import random
-names = ["Alice", "Bob", "Charlie", "David", "Emma"]
+
+position = [
+r'''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''',
+r'''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''',
+r'''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''',
+r'''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''',
+r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''',
+r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''',
+r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+========='''
+]
+
+names = ["Apparao", "Bullabai", "Chittinaidu", "DurgaRao", "Elemma"]
 a = random.choice(names).lower()
 print(a)
-for i in range(0,len(a)):
-    print("_",end =" ")
+
+
+for _ in a:
+    print("_", end=" ")
+
+lives = 7
 trail = False
 correct = []
+
 while not trail:
-    b = input("Enter your trail: ").lower()
+    b = input("\nEnter your trail: ").lower()
     blank = ""
 
-    
-    for i in a :
+    for i in a:
         if i == b:
-            blank = blank + i
+            blank += i
             correct.append(i)
         elif i in correct:
-            blank = blank + i
-            
+            blank += i    
         else:
-            blank = blank + "_"
+            blank += "_"
+    
     print(blank)
+
+    if b not in a:
+        lives -= 1
+        if lives == 0:
+            trail = True
+            print("Poyindi po Life ayyipoyindi") 
+    
     if "_" not in blank:
         trail = True 
-        print("You won") 
+        print("You won! Enjoy Pandago")  
+
+    print(position[7 - lives])  
