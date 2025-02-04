@@ -2,7 +2,8 @@ import random
 names = ["Alice", "Bob", "Charlie", "David", "Emma"]
 a = random.choice(names).lower()
 print(a)
-
+for i in range(0,len(a)):
+    print("_",end =" ")
 trail = False
 correct = []
 while not trail:
